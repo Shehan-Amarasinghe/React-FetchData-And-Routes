@@ -19,7 +19,7 @@ function Product() {
     <h1>Product</h1>
     {carts.map((cart) => {
       return(
-          <ul>
+          <ul key={Math.random()}>
             <li>{cart.id}</li>
             <br />
             <h4>{cart.date}</h4>
