@@ -3,11 +3,17 @@ import React, { useEffect, useState } from 'react'
 function About() {
 
   const [datas, setData] = useState([]);
-
+   
   const Fetchjson = async() => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-    const result = await res.json();
-    setData(result);
+    try {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+      const result = await res.json();
+      setData(result);
+
+    } catch (error) {
+      console.log(error);
+    }
+    
   }
 
   useEffect(() => {

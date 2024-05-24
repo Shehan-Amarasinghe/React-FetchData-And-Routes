@@ -5,9 +5,15 @@ function Contact() {
   const [users, setUsers] = useState([]);
 
   const gettingData = async () => {
-    const r = await fetch("https://jsonplaceholder.typicode.com/users")
-    const rs = await r.json();
-    setUsers(rs);
+    try {
+      const r = await fetch("https://jsonplaceholder.typicode.com/users")
+      const rs = await r.json();
+      setUsers(rs);
+
+    } catch (error) {
+      console.log(error);
+    }
+  
   }
 
   useEffect(() => {

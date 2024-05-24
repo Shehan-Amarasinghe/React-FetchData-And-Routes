@@ -5,9 +5,15 @@ function Product() {
   const [carts, setCarts] = useState([]);
 
   const fetchCat = async() => {
-    const responsee = await fetch("https://fakestoreapi.com/carts")
-    const resultt = await responsee.json();
-    setCarts(resultt);
+    try {
+      const responsee = await fetch("https://fakestoreapi.com/carts")
+      const resultt = await responsee.json();
+      setCarts(resultt);
+
+    } catch (error) {
+      console.log(error);
+    }
+   
   }
 
   useEffect(() => {
